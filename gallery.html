@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    p,h1,h2,h3,h4,h5,h6,SPAN, A, BODY, HTML, DIV, iframe {
+        font-family: 'Google Sans', Roboto, Arial, monospace !important;
+        cursor: url(https://lettuce-it.tribe.so/api/v1/posts/5ecf50168c42dd699c00ef95/download/5ecf50168c42dd699c00ef96),auto;
+        }
+        A[id="jsitor-view-source"] {
+        display: block
+        }
+        #currentTime {
+          font-size: 15px !important;
+         position: fixed;
+          top: -8px;
+          left: 48%;
+          text-align: center !important;
+          font-family: 'Google Sans', Roboto, Arial, Segoe UI, monospace !important;
+          font-weight: 400;
+          color: #fff;
+        }
+
+		#splashIMG {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: 99999;
+		}
+
+	#loader,
+	#circle,
+	#bg,
+	#loading,
+	#loader-screen {
+		animation: css 0s 15s forwards;
+	}
+
+	@keyframes css {
+		to {
+			visibility: hidden;
+		}
+	}
+
+	#splashIMG {
+		animation: css 0s 4s forwards;
+	}
+
+	@keyframes css {
+		to {
+			visibility: hidden;
+		}
+	}
+
+	#loader-screen {
+		background-color: #af0a0a;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 99999;
+	}
+
+	#loader {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		width: 50px;
+		height: 50px;
+		margin: auto;
+	}
+
+	#loader #circle {
+		position: absolute;
+		width: 38px;
+		height: 38px;
+		opacity: 0;
+		transform: rotate(225deg);
+		animation-iteration-count: infinite;
+		animation-name: orbit;
+		animation-duration: 5.5s;
+	}
+
+	#loader #circle:after {
+		content: '';
+		position: absolute;
+		width: 6px;
+		height: 6px;
+		border-radius: 5px;
+		background: #000;
+	}
+
+	#loader #circle:nth-child(1) {
+		animation-delay: 120ms;
+	}
+
+	#loader #circle:nth-child(2) {
+		animation-delay: 240ms;
+	}
+
+	#loader #circle:nth-child(3) {
+		animation-delay: 480ms;
+	}
+
+	#loader #circle:nth-child(4) {
+		animation-delay: 720ms;
+	}
+
+	#loader #circle:nth-child(5) {
+		animation-delay: 960ms;
+	}
+
+	#loader #bg {
+		position: absolute;
+		width: 70px;
+		height: 70px;
+		margin-left: -16px;
+		margin-top: -16px;
+		border-radius: 13px;
+		animation: bgg 16087ms ease-in alternate infinite;
+	}
+
+	@keyframes orbit {
+		0% {
+			transform: rotate(225deg);
+			opacity: 1;
+			animation-timing-function: ease-out;
+		}
+
+		7% {
+			transform: rotate(345deg);
+			animation-timing-function: linear;
+		}
+
+		30% {
+			transform: rotate(455deg);
+			animation-timing-function: ease-in-out;
+		}
+
+		39% {
+			transform: rotate(690deg);
+			animation-timing-function: linear;
+		}
+
+		70% {
+			transform: rotate(815deg);
+			opacity: 1;
+			animation-timing-function: ease-out;
+		}
+
+		75% {
+			transform: rotate(945deg);
+			animation-timing-function: ease-out;
+		}
+
+		76% {
+			transform: rotate(945deg);
+			opacity: 0;
+		}
+
+		100% {
+			transform: rotate(945deg);
+			opacity: 0;
+		}
+	}
+
+	.parent {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.child {
+		position: fixed;
+		right: 20%;
+		font-family: 'Google Sans', Roboto, Arial;
+		font-size: 15px;
+		color: #cf0a0a;
+	}
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+        background-color: #af0a0a;
+        color: black;
+    }
+
+    li {
+        float: left;
+
+        overflow: auto;
+    }
+
+    li a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        overflow: auto;
+
+    }
+
+    li a:hover {
+        background-color: #000;
+        color: white;
+        overflow: auto;
+    }
+
+	[id^=mzodal] {
+		display: none;
+		position: fixed;
+		min-height: 10em;
+		min-width: 5em;
+		font-family: 'Google Sans', Roboto, Arial, sans-serif;
+		color: #fff;
+		background-color: #000;
+		height: 100%;
+		Width: 100%;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+
+	}
+
+	input[type=checkbox] {
+		position: absolute;
+		clip: rect(0 0 0 0);
+	}
+
+	#mzodal1:target {
+		display: block;
+		z-index: 999999;
+	}
+
+	#mzodal2:target {
+		display: block;
+		z-index: 99998;
+	}
+
+	#mzodal3:target {
+		display: block;
+		z-index: 99998;
+	}
+
+	#mzodal4:target {
+		display: block;
+		z-index: 99998;
+	}
+
+	#mzodal5:target {
+		display: block;
+		z-index: 99998;
+	}
+
+	#mzodal6:target {
+		display: block;
+		z-index: 99998;
+	}
+
+	#mzodalDINO:target {
+		display: block;
+		z-index: 99998;
+	}
+
+	#mzodalSG:target {
+		display: block;
+		z-index: 99998;
+		border: 2px solid #af0a0a;
+	}
+
+	#mzodalCREDITS:target {
+		display: block;
+		z-index: 99998;
+			min-height: 3em;
+			min-width: 5em;
+			font-family: 'Google Sans', Roboto, Arial, sans-serif;
+			color: #fff;
+			background-color: #000;
+			height: 40%;
+			Width: 60%;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+	}
+
+	[id^=mzodal] a {
+		float: right;
+	}
+
+	a {
+		text-decoration: None;
+		Color: #AF0A0A;
+		z-index: 99999;
+		font-size: 20px;
+	}
+
+	body,
+	html {
+		background-color: #000;
+	}
+
+	.bagel {
+		float: right !important;
+		top: 0px;
+	}
+
+	.dropbtn {
+		background-color: #af0a0a;
+		position: fixed;
+		top: 0;
+		left: 30%;
+		color: black;
+		font-family: 'Google Sans', Roboto, Arial, Comic Sans;
+		font-size: 15px;
+		border: none;
+		cursor: pointer;
+    z-index: 99999;
+	}
+
+	.dropdown {
+		position: fixed;
+		top: 2%;
+		left: 27%;
+		position: relative;
+		display: inline-block;
+	}
+
+	.dropdown-content {
+		display: none;
+		position: fixed;
+    top: 15px;
+		background-color: #f9f9f9;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index: 999999;
+	}
+
+	.dropdown-content a {
+		color: #ffffff;
+		background-color: #111;
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdown-content a:hover {
+		background-color: #af0a0a;
+		color: #000;
+	}
+
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
+
+	.dropdown:hover .dropbtn {
+		background-color: #222;
+		color: #fff;
+	}
+
+	/* Chrome, Safari and Opera syntax */
+	:-webkit-full-screen {}
+
+	/* Firefox syntax */
+	:-moz-full-screen {}
+
+	/* IE/Edge syntax */
+	:-ms-fullscreen {}
+
+	/* Standard syntax */
+	:fullscreen {}
+
+	/* Style the button */
+	button {
+		border: none;
+		background-color: transparent;
+
+	}
+
+    .ipage::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .ipage {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cseriestechhero.github.io/kiosk-setup/services/redir/basepage8_1/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        clock();
+        function clock() {
+          var now = new Date();
+          var TwentyFourHour = now.getHours();
+          var hour = now.getHours();
+          var min = now.getMinutes();
+          var sec = now.getSeconds();
+          var mid = 'pm';
+          if (min < 10) {
+            min = "0" + min;
+          }
+          if (hour > 12) {
+            hour = hour - 12;
+          }
+          if (hour == 0) {
+            hour = 12;
+          }
+          if (TwentyFourHour < 12) {
+            mid = 'am';
+          }
+          document.getElementById('currentTime').innerHTML = hour + ':' + min + ' ' + mid;
+          setTimeout(clock, 1000);
+        }
+      }
+    
+        var elem = document.documentElement;
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) { /* Firefox */
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE/Edge */
+        elem.msRequestFullscreen();
+      }
+    }
+    
+    function closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    }
+    
+    window.addEventListener('offline', function(e) {
+      document.getElementById('indicator').innerHTML = 'You are offline. Launch <a style="font-size: 15px; color: ff0a0a;" href="#mzodalDINO">dino game</a>';
+    });
+
+	window.addEventListener('online', function(e) {
+  document.getElementById('indicator').innerHTML = '';
+    });
+
+    </script>
+
+<meta name="theme-color" content="#000000">
+
+<body>
+<h1 style="font-size:20px; z-index:99999 !important;" id="currentTime"></h1>
+<div class="parent">
+	<div style="z-index: 99999;" class="child"><span id="indicator"></span></div>
+</div>
+<p title="sys version: 2.6.5" style="color:#fff; position: fixed; top: -10px; left: 0;">LCTapps' Photo Gallery </p>
+<button onclick="openFullscreen();"><img src="https://media1-production-mightynetworks.imgix.net/asset/10829960/fullscreen_-_cropped.png?ixlib=rails-0.3.0&amp;fm=jpg&amp;q=75&amp;auto=format&amp;w=1400&amp;h=1400&amp;fit=max" style="width: 12px; height: 12px; position: fixed; right: 17px; top: 5px;"></button>
+<div id="czontent">
+	<ul style="overflow: auto;">
+		<li title="frame01"><a href="#mzodal1">2021</a></li>
+		<li title="frame02"><a href="#mzodal2">2022</a></li>
+		<li title="frame03"><a href="#mzodal3">2023</a></li>
+		<li title="frame04"><a href="#mzodal4">2024</a></li>
+        <li title="frame05"><a href="#mzodal5">Photoshop</a></li>
+        <li title="frame06"><a href="#mzodal6">Film Scans</a></li>
+	</ul>
+
+    <div style="position:fixed;" class="oatmeal-link">
+		<a style="width:99%;border:1px solid;position:fixed; bottom:10px; text-align:center;" href="#mzodalSG">GuruShots Profile</a>
+    </div>
+    <div>
+        <!--move 2022 ro mzodal 2, 2023 to mzodal 3, so on. upload california photos to google drive in photoPorfolio folder, embed 2021 photos under mzodal1-->
+    <div id="mzodal1"><a style="z-index: 99998; position: fixed; top: -1px; right: 0;" href="#">×</a><iframe class="ipage" src="https://drive.google.com/embeddedfolderview?id=15BrbsPVSkQveWPzfeBN21LiOohuczPBd#grid" allowtransparency="true" style="background-color: #000 !important; color: #af0a0a !important; position:fixed;  left:0; bottom:0; right:0; width:100%; height:97%; border:none; margin:0; padding:0; overflow:hidden; z-index: 0;" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="yes"></iframe>2021<button onclick="openFullscreen();"><img src="https://media1-production-mightynetworks.imgix.net/asset/10829960/fullscreen_-_cropped.png?ixlib=rails-0.3.0&amp;fm=jpg&amp;q=75&amp;auto=format&amp;w=1400&amp;h=1400&amp;fit=max" style="width: 12px; height: 12px; position: fixed; right: 17px; top: 5px; "></button></div>
+    <div id="mzodal2"><a style="z-index: 99999; position: fixed; top: -1px; right: 0;" href="#">×</a><iframe class="ipage" src="https://drive.google.com/embeddedfolderview?id=1xu6GExsh3VIlJc9YOXi1sW6Dkki6Olbx#grid" allowtransparency="true" style="background-color: #000 !important; color: #af0a0a !important; position:fixed;  left:0; bottom:0; right:0; width:100%; height:97%; border:none; margin:0; padding:0; overflow:hidden; z-index: 0;" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="yes"></iframe>2022<button onclick="openFullscreen();"><img src="https://media1-production-mightynetworks.imgix.net/asset/10829960/fullscreen_-_cropped.png?ixlib=rails-0.3.0&amp;fm=jpg&amp;q=75&amp;auto=format&amp;w=1400&amp;h=1400&amp;fit=max" style="width: 12px; height: 12px; position: fixed; right: 17px; top: 5px; "></button></div>
+    <div id="mzodal3"><a style="z-index: 99999; position: fixed; top: -1px; right: 0;" href="#">×</a><iframe class="ipage" src="https://drive.google.com/embeddedfolderview?id=1ymRRCwivAHN6aLZO0VaoNGQUraA5jplr#grid" allowtransparency="true" style="background-color: #000 !important; color: #af0a0a !important; position:fixed;  left:0; bottom:0; right:0; width:100%; height:97%; border:none; margin:0; padding:0; overflow:hidden; z-index: 0;" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="yes"></iframe>2023<button onclick="openFullscreen();"><img src="https://media1-production-mightynetworks.imgix.net/asset/10829960/fullscreen_-_cropped.png?ixlib=rails-0.3.0&amp;fm=jpg&amp;q=75&amp;auto=format&amp;w=1400&amp;h=1400&amp;fit=max" style="width: 12px; height: 12px; position: fixed; right: 17px; top: 5px; "></button></div>
+	<div id="mzodal4"><a style="z-index: 99999; position: fixed; top: -1px; right: 0;" href="#">×</a><iframe class="ipage" src="https://drive.google.com/embeddedfolderview?id=14qmJA63-zvSdrTmHVv9wLOoD0QBTAAaX#grid" allowtransparency="true" style="background-color: #000 !important; color: #af0a0a !important; position:fixed;  left:0; bottom:0; right:0; width:100%; height:97%; border:none; margin:0; padding:0; overflow:hidden; z-index: 0;" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="yes"></iframe>2024<button onclick="openFullscreen();"><img src="https://media1-production-mightynetworks.imgix.net/asset/10829960/fullscreen_-_cropped.png?ixlib=rails-0.3.0&amp;fm=jpg&amp;q=75&amp;auto=format&amp;w=1400&amp;h=1400&amp;fit=max" style="width: 12px; height: 12px; position: fixed; right: 17px; top: 5px; "></button></div>
+    <div id="mzodal5"><a style="z-index: 99999; position: fixed; top: -1px; right: 0;" href="#">×</a><iframe class="ipage" src="https://drive.google.com/embeddedfolderview?id=1ExqinUeqvXbyh2A1Fx14LdmG7sfg4AD9#grid" allowtransparency="true" style="background-color: #000 !important; color: #af0a0a !important; position:fixed;  left:0; bottom:0; right:0; width:100%; height:97%; border:none; margin:0; padding:0; overflow:hidden; z-index: 0;" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="yes"></iframe>Photoshop<button onclick="openFullscreen();"><img src="https://media1-production-mightynetworks.imgix.net/asset/10829960/fullscreen_-_cropped.png?ixlib=rails-0.3.0&amp;fm=jpg&amp;q=75&amp;auto=format&amp;w=1400&amp;h=1400&amp;fit=max" style="width: 12px; height: 12px; position: fixed; right: 17px; top: 5px; "></button></div>	
+    <div id="mzodal6"><a style="z-index: 99999; position: fixed; top: -1px; right: 0;" href="#">×</a><iframe class="ipage" src="https://drive.google.com/embeddedfolderview?id=1BFmC-0mnfXjWj1ucEkSOHI2lRNgtOgQA#grid" allowtransparency="true" style="background-color: #000 !important; color: #af0a0a !important; position:fixed;  left:0; bottom:0; right:0; width:100%; height:97%; border:none; margin:0; padding:0; overflow:hidden; z-index: 0;" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="yes"></iframe>Film Scans<button onclick="openFullscreen();"><img src="https://media1-production-mightynetworks.imgix.net/asset/10829960/fullscreen_-_cropped.png?ixlib=rails-0.3.0&amp;fm=jpg&amp;q=75&amp;auto=format&amp;w=1400&amp;h=1400&amp;fit=max" style="width: 12px; height: 12px; position: fixed; right: 17px; top: 5px; "></button></div>	
+    <div id="mzodalSG"><a style="z-index: 99999; position: fixed; top: -2px; right: 0;" href="#">×</a><iframe class="ipage" src="https://gurushots.com/lctapps/photos" allowtransparency="true" style="background-color: #000 !important; color: #af0a0a !important; position:fixed;  left:1px; bottom:1px; right:1px; width:100%; height:97%; border:none; margin:0; padding:0; overflow:hidden; z-index: 0;" frameborder="no" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="yes"></iframe>GuruShots<button onclick="openFullscreen();"><img src="https://media1-production-mightynetworks.imgix.net/asset/10829960/fullscreen_-_cropped.png?ixlib=rails-0.3.0&amp;fm=jpg&amp;q=75&amp;auto=format&amp;w=1400&amp;h=1400&amp;fit=max" style="width: 12px; height: 12px; position: fixed; right: 17px; top: 5px; "></button></div>
+</div>
+</div>
+</body>
