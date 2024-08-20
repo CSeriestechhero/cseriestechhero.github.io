@@ -1,0 +1,393 @@
+<meta name="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="jquery.console.js"></script>
+<!-- Everything beyond this point is user-customized -->
+<script type="text/javascript">
+  $(document).ready(function(){
+     /* Second console */
+     var console2 = $('<div class="console2">');
+     $('body').append(console2);
+     var controller2 = console2.console({
+       promptLabel: 'user@cseriestechhero.github.io:~$ ',
+       commandValidate:function(line){
+         if (line == "") return false;
+         else return true;
+       },
+       commandHandle:function(line){
+           try { var ret = eval(line);
+                 if (typeof ret != 'undefined') return ret.toString();
+                 else return true; }
+           catch (e) { return e.toString(); }
+       },
+       animateScroll:true,
+       promptHistory:true,
+       welcomeMessage:''
+     });
+     controller2.promptText('help');
+   });
+</script>
+<script>
+   var help = {
+    toString: function() {
+      return "[HELP]: \n Welcome to Lettuce Cobbler Twinkie's website! You are in magiconsole, which typically allows users to debug their javascript/jquery code. This version of magiconsole is designed to work with Lettuce Cobbler Twinkie's homepage, so custom commands will be below: \n\n [CSERIESTECHHERO.GITHUB.IO BASE COMMANDS]\n HELP AND OTHER IMPORTANT INFORMATION:\n List all available commands | commands\n About Lettuce Cobbler Twinkie | about\n Magiconsole Info | about_magiconsole \n\n [CSERIESTECHHERO.GITHUB.IO ADVANCED COMMANDS] \n WINDOW MANAGEMENT: \n Opening a window  | parent.openWindow(NUMBER)\n Closing a window (is spelled 'windwow')| parent.closeWindwow(NUMBER)\nMinimize a window | parent.minimizeWindow(NUMBER)\n Focus a window | parent.makeWindowActive(NUMBER)\n\n DESKTOP MANAGEMENT: \n Hide navigation shelf | togglenav\n Toggle Dark Mode (experimental) | darkmode\n\n Reload entire page | reboot \n Reload magiconsole | reload\n\n [MAGICONSOLE SHORTCUTS]\n[CTRL]+[L] | Clear console history\n[CTRL]+[U] | Clear what you're currently inputting..."
+  }
+};
+   var about_magiconsole = {
+     toString: function() {
+        return "[ABOUT]: \n magiconsole - jquery/js console optimized for cseriestechhero.github.io \n by LCTapps \n based off of https://github.com/chrisdone/jquery-console\n version 2.0 "
+     }
+   };
+
+   var commands = {
+     toString: function() {
+        return "help\n about\n about_magiconsole\n browser\n lctsearch\n socials\n music\n photography\n reload\n reboot\n magiconsole\n compucidal_scripto\n mazegame\n dino\n settings\n song\n notepad\n darkmode\n togglenav\n windo_documentation\n whoami"
+     }
+   };
+   var reload = {
+     toString: function() {
+        location.reload();
+     }
+   };
+   
+   var reboot = {
+     toString: function() {
+        parent.location.reload();
+     }
+   };
+   
+
+   var switchgraphx = {
+     toString: function() {
+        parent.window.location.replace("../../../../switchgraphx.html");
+     }
+   };
+
+
+   var contact_email = {
+     toString: function() {
+        return "lcteatsoatmeal@gmail.com\n lctapps.1994@gmail.com";
+     }
+   };
+
+   var logout = {
+     toString: function() {
+        parent.window.location.replace("../../../index.html");
+     }
+   };
+
+   var windo_documentation = {
+    toString: function() {
+        parent.openWindow(20);
+        return "";
+    }
+   };
+
+
+   var gallery = {
+    toString: function() {
+        parent.openWindow(5);
+        return "";
+        
+    }
+   };
+
+
+   var song = {
+    toString: function() {
+        parent.openWindow(6);
+        return "";
+        
+    }
+   };
+
+   var dino = {
+    toString: function() {
+        parent.openWindow(9);
+        return "";
+        
+    }
+   };
+
+
+   var whoami = {
+    toString: function() {
+        return "I am Lettuce Cobbler Twinkie, A.K.A. CSeriestechhero, LCTapps, Webdriver-Ruffage.";
+    }
+   };
+
+   var about = {
+    toString: function() {
+        parent.openWindow(4);
+        return "";
+    }
+   };
+
+   var photography = {
+    toString: function() {
+        return "[PHOTOGRAPHY RELATED COMMANDS]\n\n gallery | LCTapps' Photo Portfolio\ninstagram_photo | LCTapps' Photography Instagram account\ngurushots | LCTapps GuruShots profile";
+    }
+   }
+
+   var gurushots = {
+    toString: function() {
+        parent.window.open("https://gurushots.com/lctapps/photos");
+        return "";
+    }
+   }
+
+   var instagram_photo = {
+    toString: function() {
+        parent.window.open("https://instagram.com/lctapps");
+        return "";
+    }
+   }
+   
+
+   var socials = {
+    toString: function() {
+        return "[GENERAL SOCIAL MEDIA]\n\n youtube | Lettuce Cobbler Twinkie's YouTube Channel\ngithub | Lettuce Cobbler Twinkie's GitHub profile\n instagram | my main Instagram account\n twitter | Lettuce Cobbler Twinkie's Twitter\n linktree | Linktree\n contact_email | My email addresses\ncontact_form | Contact me (via Form)";
+    }
+   }
+
+
+   var youtube = {
+    toString: function() {
+        parent.window.open("https://youtube.com/c/LettuceCobblerTwinkie");
+        return "";
+    }
+   }
+   
+   var github = {
+    toString: function() {
+        parent.window.open("https://github.com/CSeriestechhero");
+        return "";
+    }
+   }
+   
+   var twitter = {
+    toString: function() {
+        parent.window.open("https://x.com/lctapps");
+        return "";
+    }
+   }
+   
+   var linktree = {
+    toString: function() {
+        parent.window.open("https://linktr.ee/Lettuce_Cobbler_Twinkie");
+        return "";
+    }
+   }
+   
+   var marketplace = {
+    toString: function() {
+        parent.window.open("https://cseriestechhero.github.io/marketplace.lctapps");
+        return "";
+    }
+   }
+   
+   var windo8_1 = {
+    toString: function() {
+        parent.window.open("https://cseriestechhero.github.io/kiosk-setup/services/redir/basepage8_1/session");
+        return "";
+    }
+   }
+   
+   var windo7 = {
+    toString: function() {
+        parent.window.open("https://cseriestechhero.github.io/kiosk-setup/services/redir/basepage7/session");
+        return "";
+    }
+   }
+   
+   var lctapps_browser = {
+    toString: function() {
+        parent.window.open("https://docs.google.com/presentation/d/e/2PACX-1vQw7l4XopIFZVjztgCItTSt5Fl-iqkvYf3iqbw2p6vrq0lOskPLGld6Q3p_jgyYyRv3ElJ228FI38CT/embed?rm=minimal&slide=id.p");
+        return "";
+    }
+   }
+   
+   var environments_rl1 = {
+    toString: function() {
+        parent.window.open("https://cseriestechhero.github.io/environments.rl1");
+        return "";
+    }
+   }
+   
+
+   var web_projects = {
+    toString: function() {
+        return "[WEB PROJECTS]\n windo7\n windo8_1\n environments_rl1\n marketplace\n lctapps_browser\n lctsearch";
+    }
+   };
+
+   var music = {
+    toString: function() {
+        return "[MUSIC]\nSTREAMING PLATFORMS:\n spotify\n deezer\n amazon_music\n apple_music\n\n OTHER LINKS:\n bandlab | My BandLab profile\n soundcloud | My SoundCloud profile (i hardly use this)\ninstagram_music | My music Instagram account\n\nnote: my music is TECHNICALLY available on some other streaming platforms. HOWEVER, not all of my music is visible on the alternative platforms, OR they're split into two artist profiles. I'm unsure on how to fix those issues, so just stick to the streaming platforms listed here. My music albums are also uploaded onto my YouTube channel, you can check that via the socials command.";
+    }
+   };
+
+   var spotify = {
+    toString: function() {
+        parent.window.open("https://open.spotify.com/artist/53l45euVVodPLp4mi7wfHK");
+        return "";
+    }
+   }
+   
+   var apple_music = {
+    toString: function() {
+        parent.window.open("https://music.apple.com/us/artist/lettuce-cobbler-twinkie/1683843867");
+        return "who the hell is Steve Jobs?";
+    }
+   }
+   
+   var amazon_music = {
+    toString: function() {
+        parent.window.open("https://music.amazon.com/artists/B0C37X7LPJ/lettuce-cobbler-twinkie");
+        return "i jailbroke a kindle eReader. very cool.";
+    }
+   }
+   
+   var deezer = {
+    toString: function() {
+        parent.window.open("https://www.deezer.com/us/artist/210835567");
+        return "";
+    }
+   }
+   
+   var instagram_music = {
+    toString: function() {
+        parent.window.open("https://instagram.com/lettucecobblertwinkie");
+        return "";
+    }
+   }
+   
+   var instagram = {
+    toString: function() {
+        parent.window.open("https://instagram.com/cseriestechhero");
+        return "";
+    }
+   }
+   
+   var instagram_2ettuce = {
+    toString: function() {
+        parent.window.open("https://instagram.com/2ettuce");
+        return "";
+    }
+   }
+   
+
+   var bandlab = {
+    toString: function() {
+        parent.window.open("https://www.bandlab.com/cseriestechhero");
+        return "";
+    }
+   }
+   
+   var soundcloud = {
+    toString: function() {
+        parent.window.open("https://soundcloud.com/lctapps_1994/tracks");
+        return "";
+    }
+   }
+   
+
+   var notepad = {
+    toString: function() {
+        parent.openWindow(7);
+        return "";
+    }
+   };
+
+   var compucidal_scripto = {
+    toString: function() {
+        parent.openWindow(11);
+        return "";
+    }
+   };
+
+   var magiconsole = {
+    toString: function() {
+        parent.openWindow(19);
+        return "";
+    }
+   };
+
+   var contact_form = {
+    toString: function() {
+        parent.openWindow(8);
+        return "";
+    }
+   };
+
+   var settings = {
+    toString: function() {
+        parent.openWindow(3);
+        return "";
+    }
+   };
+
+   var browser = {
+    toString: function() {
+        parent.openWindow(2);
+        return "";
+    }
+   };
+   
+   var mazegame = {
+    toString: function() {
+        parent.openWindow(1);
+        return "";
+    }
+   };
+
+   var lctsearch = {
+    toString: function() {
+        parent.openWindow(0);
+        return "";
+    }
+   };
+
+
+   var togglenav = {
+    toString: function() {
+        parent.hideBarFull();
+        parent.hideMe();
+        return "";
+    }
+   };
+
+   var darkmode = {
+    toString: function() {
+        parent.myFunction();
+        return "";
+    }
+   };
+
+
+   </script>
+<style type="text/css" media="screen">
+  div.console2 { word-wrap: break-word; }
+  /* Second console */
+  div.console2 { font-size: 14px; margin-top:none }
+  div.console2 div.jquery-console-inner
+   { width:100%; height:100%; position: absolute; top:0; bottom: 0; left:0; right:0; background: transparent;
+     overflow:auto }
+  div.console2 div.jquery-console-prompt-box
+   { color:#616161; font-family:monospace; }
+
+   .dark-mode   div.console2 div.jquery-console-prompt-box
+{ color:#d8d8d8 !important; font-family:monospace; }
+
+  div.console2 div.jquery-console-focus span.jquery-console-cursor
+   { background:#616161; color:#333; font-weight:bold }
+  div.console2 div.jquery-console-message-error
+   { color:#ef0505; font-family:sans-serif; font-weight:bold;
+     padding:0.1em; }
+  div.console2 div.jquery-console-message-success
+   { color:#23c423; font-family:monospace;
+     padding:0.1em; }
+  div.console2 span.jquery-console-prompt-label { font-weight:bold }
+</style>
+<script>
+//
+</script>
