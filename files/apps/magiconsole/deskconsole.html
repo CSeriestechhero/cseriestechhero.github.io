@@ -145,7 +145,7 @@
 
    var socials = {
     toString: function() {
-        return "[GENERAL SOCIAL MEDIA]\n\n youtube | Lettuce Cobbler Twinkie's YouTube Channel\ngithub | Lettuce Cobbler Twinkie's GitHub profile\n instagram | my main Instagram account\n twitter | Lettuce Cobbler Twinkie's Twitter\n linktree | Linktree\n contact_email | My email addresses\ncontact_form | Contact me (via Form)";
+        return "[GENERAL SOCIAL MEDIA]\n\n youtube | Lettuce Cobbler Twinkie's YouTube Channel\ngithub | Lettuce Cobbler Twinkie's GitHub profile\n instagram | my main Instagram account\n bluesky  | Lettuce Cobbler Twinkie's Bluesky profile (better than twitter) \n twitter | Lettuce Cobbler Twinkie's Twitter (Archive)\n linktree | Linktree\n contact_email | My email addresses\ncontact_form | Contact me (via Form)";
     }
    }
 
@@ -167,10 +167,18 @@
    var twitter = {
     toString: function() {
         parent.window.open("https://x.com/lctapps");
-        return "";
+        return "i don't tweet here anymore, fuck elon";
     }
    }
    
+   var bluesky = {
+    toString: function() {
+        parent.window.open("https://lctapps.bsky.social");
+        return "better than twitter";
+    }
+   }
+   
+
    var linktree = {
     toString: function() {
         parent.window.open("https://linktr.ee/Lettuce_Cobbler_Twinkie");
